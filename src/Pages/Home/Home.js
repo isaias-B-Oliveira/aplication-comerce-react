@@ -1,16 +1,13 @@
 import React from "react";
-import Logo from "../../assets/logo.png";
+
+import Navbar from "../../Components/Navbar/Navbar";
+import Card from "../../Components/Card/Card";
+import Modal from "../../Components/Modal/Modal";
 
 function Home() {
     return (
         <>
-            <nav>
-                <div className="nav-container">
-                    <img src={Logo} alt="logo do comercio" />
-                    <button>ENTRAR</button>
-                </div>
-            </nav>
-
+            <Navbar />
             <section className="input-section">
                 <form>
                     <h1>Pesquisar Produtos</h1>
@@ -27,20 +24,14 @@ function Home() {
 
             <section className="products-section">
                 <div className="products-container">
-                    <div className="card">
-                        <h2>Brigadeiro</h2>
-                        <h1>R$ 5,00</h1>
-                        <div className="card-info">
-                            <img src="" alt="" />
-                            <p>Casa do Chocolate</p>
-                        </div>
-                        <div className="card-info">
-                            <img src="" alt="" />
-                            <p>+55 (88)99999-9999</p>
-                        </div>
-                    </div>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
                 </div>
             </section>
+
+            <Modal />
         </>
     );
 }

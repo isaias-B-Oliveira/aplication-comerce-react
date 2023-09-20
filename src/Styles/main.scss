@@ -7,6 +7,9 @@ $secondaryColor: #333333;
 $tertiaryColor: #fff;
 $lightGray: #e2dede;
 
+$shadow: 0 5px 15px 0 #00000026;
+$backdrop: rgba(0, 0, 0, 0.3);
+
 
 *{
     margin: 0;
@@ -26,7 +29,7 @@ button{
     background-color: $prymaryColor;
     color: $tertiaryColor;
     border: none;
-    max-width: 180px;
+    // max-width: 180px;
     width: 100%;
 
     &:hover{
@@ -101,9 +104,96 @@ nav{
 }
 
 .products-section{
-    height: 50vh;
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: red;
-}//58,54 do video
+
+    .products-container{
+        max-width: $maxWidth;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-gap: $standedSpace;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        .card{
+            padding: $standedSpace;
+            box-shadow: $shadow;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h2{
+                font-size: $standedSpace;
+            }
+
+            h1{
+                font-size: 3*$standedSpace;
+            }
+
+            .card-info{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: $standedSpace;
+                margin-top: 2*$standedSpace;
+
+                .card-info-details:last-child{
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
+.backdrop{
+    width: 100vw;
+    height: 100vh;
+    background: $backdrop;
+    position: fixed;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modal{
+        background: $tertiaryColor;
+        max-width: 600px;
+        width: 100%;
+        min-height: 50vh;
+        padding: 3*$standedSpace;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1{
+            margin-bottom: $standedSpace;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            input{
+                margin: $standedSpace 0;
+            }
+
+            button{
+                margin: $standedSpace 0;
+            }
+
+            a{
+                text-decoration: none;
+                color: $secondaryColor;
+                &:hover{
+                    color: $prymaryColor;
+                }
+            }
+        }
+    }
+}
