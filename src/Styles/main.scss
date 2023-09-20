@@ -1,0 +1,109 @@
+$standedSpace: 16px;
+$fontStyle: $standedSpace sans-serif;
+$maxWidth: 1200px;
+
+$prymaryColor: #6183DD;
+$secondaryColor: #333333;
+$tertiaryColor: #fff;
+$lightGray: #e2dede;
+
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font: $fontStyle;
+    color: $secondaryColor;
+}
+
+button{
+    font: $fontStyle;  
+    padding: $standedSpace;
+    background-color: $prymaryColor;
+    color: $tertiaryColor;
+    border: none;
+    max-width: 180px;
+    width: 100%;
+
+    &:hover{
+        background-color: $tertiaryColor;
+        color: $prymaryColor;
+        border: 1px solid $prymaryColor;
+    }
+}
+
+input{
+    font:$fontStyle;
+    font-size: $standedSpace;
+    padding: $standedSpace;
+    background: $lightGray;
+    border: none;
+}
+
+nav{
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .nav-container{
+        max-width: $maxWidth;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img{
+            height: 50px;
+            width: 180px;
+        }
+
+        button{
+            max-width: 180px;
+        }
+
+    }
+}
+
+.input-section{
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    form{
+        max-width: $maxWidth;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1{
+            font-size: 2*$standedSpace;
+            margin: $standedSpace;
+        }
+
+        .form-inputs{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: $standedSpace;
+            width: 100%;
+
+        }
+    }
+}
+
+.products-section{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: red;
+}//58,54 do video
