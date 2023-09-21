@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../../Context/userContext";
 
 function Card() {
+    const [userData, setUserData] = useContext(UserContext);
+
     return (
         <div className="card">
+            {userData.isLogged ? <button>Excluir</button> : null}
+
             <h2>Brigadeiro</h2>
             <h1>R$ 5,00</h1>
             <div className="card-info">

@@ -29,7 +29,6 @@ button{
     background-color: $prymaryColor;
     color: $tertiaryColor;
     border: none;
-    // max-width: 180px;
     width: 100%;
 
     &:hover{
@@ -100,6 +99,12 @@ nav{
             width: 100%;
 
         }
+        .products-inputs{
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-gap: $standedSpace;
+            width: 100%; 
+        }
     }
 }
 
@@ -125,6 +130,13 @@ nav{
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            position: relative;
+
+            button{
+                position: absolute;
+                bottom: 0;
+                width: 60%;
+            }
 
             h2{
                 font-size: $standedSpace;
@@ -159,9 +171,15 @@ nav{
     justify-content: center;
     align-items: center;
 
+    .close-modal{
+        position: fixed;
+        max-width: 600px;
+        bottom: 5px;
+    }
+
     .modal{
         background: $tertiaryColor;
-        max-width: 600px;
+        max-width: 500px;
         width: 100%;
         min-height: 50vh;
         padding: 3*$standedSpace;

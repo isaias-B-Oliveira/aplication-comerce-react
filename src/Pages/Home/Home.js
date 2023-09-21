@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Navbar from "../../Components/Navbar/Navbar";
 import Card from "../../Components/Card/Card";
 import Modal from "../../Components/Modal/Modal";
 
 function Home() {
+    const [isModalOpen, setisModalOpen] = useState(false);
+
+    function openModal() {
+        setisModalOpen(true);
+    }
+    function closeModal() {
+        setisModalOpen(false);
+    }
+
     return (
         <>
-            <Navbar />
+            <Navbar openModal={openModal} />
             <section className="input-section">
                 <form>
                     <h1>Pesquisar Produtos</h1>
@@ -31,7 +40,7 @@ function Home() {
                 </div>
             </section>
 
-            <Modal />
+            {isModalOpen ? <Modal closeModal={closeModal} /> : null}
         </>
     );
 }

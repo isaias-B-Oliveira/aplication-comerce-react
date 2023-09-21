@@ -1,11 +1,14 @@
 import React from "react";
 import "./Styles/main.scss";
 import Rotas from "./Routes/Routes";
+import { UserProvider } from "./Context/userContext";
 
 function App() {
     return (
         <div>
-            <Rotas />
+            <UserProvider>
+                <Rotas />
+            </UserProvider>
         </div>
     );
 }
