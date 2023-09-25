@@ -1,8 +1,10 @@
 import React from "react";
 
-function Card() {
+function DeletableCard() {
     return (
         <div className="card">
+            <button>Excluir</button>
+
             <h2>Brigadeiro</h2>
             <h1>R$ 5,00</h1>
             <div className="card-info">
@@ -17,4 +19,4 @@ function Card() {
     );
 }
 
-export default Card;
+export default DeletableCard;

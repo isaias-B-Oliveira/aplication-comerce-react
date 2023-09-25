@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import Card from "../../Components/Card/Card";
+
+import DeletableCard from "../../Components/DeletableCards/DeletableCards";
 
 function Dashboard() {
     return (
@@ -23,10 +24,10 @@ function Dashboard() {
 
             <section className="products-section">
                 <div className="products-container">
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    <DeletableCard />
+                    <DeletableCard />
+                    <DeletableCard />
+                    <DeletableCard />
                 </div>
             </section>
         </>

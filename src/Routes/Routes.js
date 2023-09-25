@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { UserContext } from "../Context/userContext";
 import Home from "../Pages/Home/Home";
 import Dashboard from "../Pages/Dashboard/Dashboard";
@@ -10,10 +10,12 @@ function Rotas() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" exact Component={Home} />
-                <Route path="/dashboard">
-                    {userData.isLogged ? <Dashboard /> : <Redirect to="/" />}
-                </Route>
-                video 3 // 39,49
+                <Route
+                    path="/dashboard"
+                    element={
+                        userData.isLogged ? <Dashboard /> : <Navigate to="/" />
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );
