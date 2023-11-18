@@ -6,6 +6,10 @@ module.exports = {
     async create(req, res) {
         const { name, price } = req.body;
         const { user_id } = req.params;
+        const { auth } = req.headers;
+
+        if (user_id !== auth)
+            return res.status(400).send({ messege: "unauthorizer" });
 
         try {
             const userInfo = await User.findById(user_id);
@@ -33,7 +37,12 @@ module.exports = {
     },
     // funcao que deleta os produtos do db
     async delete(req, res) {
-        const { Product_id } = req.params;
+        const { Product_id, user_id } = req.params;
+        const { auth } = req.headers;
+
+        if (user_id !== auth)
+            return res.status(400).send({ messege: "unauthorizer" });
+
         try {
             const deletedProduct = await Product.findByIdAndDelete(Product_id);
             return res
@@ -43,9 +52,24 @@ module.exports = {
             return res.status(400).send(error);
         }
     },
-
+    //função que lista todos os produtos do usuario
     async indexByuser(req, res) {
-        // video 4 = 1:36:40
+        const { user_id } = req.params;
+        const { auth } = req.headers;
+
+        if (user_id !== auth)
+            return res.status(400).send({ messege: "unauthorizer" });
+
+        try {
+            const allProductsOfUser = await Product.find({
+                user: user_id,
+            });
+            return res.status(200).send(allProductsOfUser);
+        } catch (error) {
+            return res.status(400).send(error);
+        }
+
+        //(video 4) 1:47:23
     },
     //funçao que lista todos os produtos do db
     async indexAll(req, res) {
