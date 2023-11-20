@@ -9,7 +9,7 @@ function Dashboard() {
             <Navbar />
             <section className="input-section">
                 <form>
-                    <h1>Cadastrar Produtos</h1>
+                    <h1>Dashboard para Cadastrar Produtos </h1>
                     <div className="products-inputs">
                         <input type="text" placeholder="Nome do produto" />
                         <input
