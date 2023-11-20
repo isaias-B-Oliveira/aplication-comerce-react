@@ -17,12 +17,21 @@ function LoginModal({ setRegisterForm }) {
                 email,
                 password,
             });
-            setUserData((prevstate) => ({ ...prevstate, isLogged: true }));
+
+            const userInfo = userData.data;
+
+            setUserData((prevstate) => ({
+                ...prevstate,
+                isLogged: true,
+                email: userInfo.data,
+                name: userInfo.data,
+                _id: userInfo._id,
+            }));
             navigate("/Dashboard");
         } catch (error) {
             alert("falha no login");
         }
-    } /// video 5 26:38
+    }
 
     return (
         <div className="modal">
@@ -35,7 +44,7 @@ function LoginModal({ setRegisterForm }) {
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <input
-                    type="text"
+                    type="password"
                     placeholder="Senha"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
