@@ -10,5 +10,5 @@ app.use(express.json());
 app.use(router);
 
 app.listen(8080, () => {
-    console.log("backend serve running (video 7) 18:43");
+    console.log("backend serve running (video 7) 45:39");
 });
