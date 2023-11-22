@@ -37,17 +37,17 @@ module.exports = {
     },
     // funcao que deleta os produtos do db
     async delete(req, res) {
-        const { Product_id, user_id } = req.params;
+        const { product_id, user_id } = req.params;
         const { auth } = req.headers;
 
         if (user_id !== auth)
             return res.status(400).send({ messege: "unauthorizer" });
 
         try {
-            const deletedProduct = await Product.findByIdAndDelete(Product_id);
+            const deletedProduct = await Product.findByIdAndDelete(product_id);
             return res
                 .status(200)
-                .send({ status: "deleted", user: deletedProduct });
+                .send({ status: "deleted", User: deletedProduct });
         } catch (error) {
             return res.status(400).send(error);
         }
@@ -63,7 +63,7 @@ module.exports = {
         try {
             const allProductsOfUser = await Product.find({
                 user: user_id,
-            });
+            }).populate("user");
             return res.status(200).send(allProductsOfUser);
         } catch (error) {
             return res.status(400).send(error);
