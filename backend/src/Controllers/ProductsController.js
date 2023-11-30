@@ -68,13 +68,13 @@ module.exports = {
         } catch (error) {
             return res.status(400).send(error);
         }
-
-        //(video 4) 1:47:23
     },
     //funçao que lista todos os produtos do db
     async indexAll(req, res) {
         const { longitude, latitude } = req.query;
-        const maxDistance = 5000;
+
+        const maxDistance = 20000;
+
         try {
             const allProducts = await Product.find({
                 location: {
@@ -86,11 +86,14 @@ module.exports = {
                         $maxDistance: maxDistance,
                     },
                 },
-            }).populate("user");
+            })
+                .populate("user")
+                .limit(24)
+                .sort("order");
 
             return res.status(200).send(allProducts);
-        } catch (error) {
-            return res.status(400).send(error);
+        } catch (err) {
+            return res.status(400).send(err);
         }
     },
 };
