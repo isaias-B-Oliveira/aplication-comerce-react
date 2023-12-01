@@ -11,6 +11,8 @@ module.exports = {
         if (user_id !== auth)
             return res.status(400).send({ messege: "unauthorizer" });
 
+        const randomNumberOrder = Math.floor(Math.random() * 1000 + 1);
+
         try {
             const userInfo = await User.findById(user_id);
             const { location } = userInfo;
@@ -26,6 +28,7 @@ module.exports = {
                 price,
                 user: user_id,
                 location: setLocation,
+                order: randomNumberOrder,
             });
 
             await CreatedProducts.populate("user");
