@@ -67,7 +67,7 @@ function Dashboard() {
         } catch (err) {
             alert("Erro ao deletar produto");
         }
-    } // video (7)  45:39
+    }
 
     return (
         <>

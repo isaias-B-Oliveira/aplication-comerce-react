@@ -1,16 +1,16 @@
 import React from "react";
 
-function Card() {
+function Card({ name, price, userName, userWhats }) {
     return (
         <div className="card">
-            <h2>Brigadeiro</h2>
-            <h1>R$ 5,00</h1>
+            <h2>{name}</h2>
+            <h1>R$ {price}</h1>
             <div className="card-info">
                 <div className="card-info-details">
-                    <p>Casa do Chocolate</p>
+                    <p>{userName}</p>
                 </div>
                 <div className="card-info-details">
-                    <p>(88)99999-9999</p>
+                    <p>{userWhats}</p>
                 </div>
             </div>
         </div>
